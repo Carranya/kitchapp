@@ -3,9 +3,9 @@
     require_once "functions/bootingPage.php";
 
     global $con;
-    $con->query("DROP DATABASE kitchapp");
-    $con->query("CREATE DATABASE IF NOT EXISTS kitchapp");
-    $con->select_db("kitchapp");
+    $con->query("DROP DATABASE kitchwiz");
+    $con->query("CREATE DATABASE IF NOT EXISTS kitchwiz");
+    $con->select_db("kitchwiz");
 
     $sql = "CREATE TABLE IF NOT EXISTS shoppingList (
         id INT(255) NOT NULL AUTO_INCREMENT,

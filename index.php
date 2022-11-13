@@ -1,5 +1,6 @@
 <?php
     require_once "functions/bootingPage.php";
+    include "pages/devPages/devButtons.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +13,11 @@
     <link rel="stylesheet" href="css/output.css">
     <script src="./node_modules/tw-elements/dist/js/index.min.js"></script>
 </head>
-<body>
-    <?php
-        include "pages/devPages/devButtons.php";
-    ?>
+<body class='font-sans bg-violet-300'>
+    <div>
+        <?php
+            include "pages/menu.php";
+        ?>
+    </div>
 </body>
 </html>

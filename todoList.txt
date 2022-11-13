@@ -1,5 +1,0 @@
-- install tailwind css
-- install twig
-- install tailwind elements
-- create index.php
-- create img/icons

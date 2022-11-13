@@ -1,5 +1,5 @@
 <?php
-    require_once "settings/bootTwig.php";
+    require_once "functions/bootingPage.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +13,8 @@
     <script src="./node_modules/tw-elements/dist/js/index.min.js"></script>
 </head>
 <body>
-
+    <?php
+        include "pages/devPages/devButtons.php";
+    ?>
 </body>
 </html>

@@ -14,7 +14,7 @@
     <a href='./pages/test2.php'>test</a>
     <?php
         require_once "functions/bootinfo.php";
-        // include "pages/test.php";
+        include "pages/test.php";
         $test = "Erfolgreich";
         $test2 = "Ok";
         echo $twig->render("testtwig.twig", ["test" => $test, "test2" => $test2]);

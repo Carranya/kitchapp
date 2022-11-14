@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="css/output.css">
     <script src="./node_modules/tw-elements/dist/js/index.min.js"></script>
 </head>
-<body class='font-sans bg-violet-300'>
+<body class='font-sans bg-violet-600'>
     <div>
         <?php
             include "pages/menu.php";
-            include "pages/test.php";
+            // include "pages/test.php";
         ?>
     </div>
 </body>

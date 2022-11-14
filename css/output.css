@@ -6392,6 +6392,11 @@ textarea.form-control.is-invalid {
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
 }
 
+.bg-violet-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(124 58 237 / var(--tw-bg-opacity));
+}
+
 .decoration-slice {
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;

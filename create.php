@@ -1,11 +1,10 @@
 <?php
-    require_once "settings/settings.php";
     require_once "functions/bootingPage.php";
 
     global $con;
-    $con->query("DROP DATABASE kitchwiz");
-    $con->query("CREATE DATABASE IF NOT EXISTS kitchwiz");
-    $con->select_db("kitchwiz");
+    $con->query("DROP DATABASE kitchenwiz");
+    $con->query("CREATE DATABASE IF NOT EXISTS kitchenwiz");
+    $con->select_db("kitchenwiz");
 
     $sql = "CREATE TABLE IF NOT EXISTS shoppingList (
         id INT(255) NOT NULL AUTO_INCREMENT,

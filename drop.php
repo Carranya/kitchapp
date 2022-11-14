@@ -1,9 +1,8 @@
 <?php
-    require_once "settings/settings.php";
     require_once "functions/bootingPage.php";
 
     global $conFirst;
-    $con->query("DROP DATABASE kitchwiz");
+    $con->query("DROP DATABASE kitchenwiz");
 ?>
 
-<h1>Drop Database kitchwiz</h1>
+<h1>Drop Database kitchenwiz</h1>

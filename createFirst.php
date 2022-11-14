@@ -1,7 +1,9 @@
 <?php
-    
-    $con = new mysqli("", "root", "");
-    $con->query("CREATE DATABASE kitchwiz");
+    require_once "settings/settings.php";
+
+
+    $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);
+    $con->query("CREATE DATABASE kitchenwiz");
 ?>
 
-<h1>Database kitchwiz created</h1>
+<h1>Database kitchenwiz created</h1>

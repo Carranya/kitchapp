@@ -6,9 +6,18 @@
     $con->query("CREATE DATABASE IF NOT EXISTS kitchenwiz");
     $con->select_db("kitchenwiz");
 
-    $sql = "CREATE TABLE IF NOT EXISTS shoppingList (
+    $sql = "CREATE TABLE IF NOT EXISTS products (
         id INT(255) NOT NULL AUTO_INCREMENT,
-        product VARCHAR(255) NOT NULL,
+        productName VARCHAR(255) NOT NULL,
+        unit VARCHAR(255) NOT NULL,
+        PRIMARY KEY (id)
+    )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
+    $con->query($sql);
+
+    $sql = "CREATE TABLE IF NOT EXISTS items (
+        id INT(255) NOT NULL AUTO_INCREMENT,
+        productId INT(255) NOT NULL,
+        amount INT(255) NOT NULL,
         PRIMARY KEY (id)
     )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con->query($sql);

@@ -15,10 +15,14 @@
 </head>
 <body class='font-sans bg-violet-600'>
     <div>
-        <?php
+    <?php
             include "pages/menu.php";
             // include "pages/test.php";
-        ?>
+            ?>
+    </div>
+    <div class='flex justify-center'>
+    <div class='inline-block w-96 border border-pink-300 rounded-xl text-center p-3 m-5 bg-pink-300 shadow-xl'>
+        Main
     </div>
 </body>
 </html>

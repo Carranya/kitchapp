@@ -13,16 +13,18 @@
     <link rel="stylesheet" href="css/output.css">
     <script src="./node_modules/tw-elements/dist/js/index.min.js"></script>
 </head>
-<body class='font-sans bg-violet-600'>
+<body class='font-sans bg-violet-300'>
     <div>
-    <?php
+        <?php
             include "pages/menu.php";
-            // include "pages/test.php";
-            ?>
+        ?>
     </div>
+
     <div class='flex justify-center'>
-    <div class='inline-block w-96 border border-pink-300 rounded-xl text-center p-3 m-5 bg-pink-300 shadow-xl'>
-        Main
+        <?php
+            include "pages/shoppingList.php";
+            include "pages/shoppingList.php";
+        ?>
     </div>
 </body>
 </html>

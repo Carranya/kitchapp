@@ -1,10 +1,11 @@
 <div class='flex justify-center'>
     <div class='inline m-5'>
         <?php
-            echo $twig->render('buttons/shoppingListButton.twig');
-            echo $twig->render('buttons/inventoryButton.twig');
-            echo $twig->render('buttons/recipesButton.twig');
-            echo $twig->render('buttons/cookbookButton.twig');
+            showMenuButton('shopping', 'shopping', 'Einkaufsliste');
+            showMenuButton('inventory', 'inventory', 'Lager');
+            showMenuButton('', 'products', 'Produkte');
+            showMenuButton('', 'recipes', 'Rezepte');
+            showMenuButton('', 'cookbook', 'Kochbuch');
         ?>
     </div>
 </div>

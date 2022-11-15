@@ -1,0 +1,18 @@
+<div class='inline-block w-96 border border-pink-300 rounded-xl text-center p-3 m-5 bg-pink-300 shadow-xl'>
+    <div class='bg-white'>
+        {% set step = 0 %}
+        {% for tests in test %}
+            {% if step == 0 %}
+                <div class='bg-white'>
+                    {{ test }}
+                </div>
+                {% set step = step + 1 %}
+            {% else %}
+                <div class='bg-violet-100'>
+                    {{ test }}
+                </div>
+                {% set step = step - 1 %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

@@ -22,8 +22,8 @@
 
     <div class='flex justify-center'>
         <?php
-            include "pages/shoppingList.php";
-            include "pages/shoppingList.php";
+            include "pages/shopping.php";
+            
         ?>
     </div>
 </body>

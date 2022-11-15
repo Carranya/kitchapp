@@ -1,5 +1,7 @@
 <?php
     require_once "functions/bootingPage.php";
+    require_once "functions/pageFunctions.php";
+
     include "pages/devPages/devButtons.php";
 ?>
 
@@ -22,8 +24,7 @@
 
     <div class='flex justify-center'>
         <?php
-            include "pages/shopping.php";
-            
+            includePages(@$_GET['page']);
         ?>
     </div>
 </body>

@@ -23,9 +23,11 @@
     </div>
 
     <div class='flex justify-center'>
-        <?php
-            includePages(@$_GET['page']);
-        ?>
+        <div class='inline'>
+            <?php
+                includePages(@$_GET['page']);
+            ?>
+        </div>
     </div>
 </body>
 </html>

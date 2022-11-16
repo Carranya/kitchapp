@@ -1,8 +1,5 @@
 <?php
 
-require_once ("./models/Model.php");
-require_once ("./models/Product.php");
-
 use \Kw\Models\Model;
 use \Kw\Models\Product;
 

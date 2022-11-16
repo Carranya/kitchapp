@@ -3,7 +3,7 @@
 namespace Kw\Models;
 use Kw\Models\Model;
 
-class Producht extends Model {
-    protected $table = "product";
+class Product extends Model {
+    protected $table = "products";
     protected $orderBy = "id";
 }

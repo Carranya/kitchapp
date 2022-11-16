@@ -9,10 +9,10 @@ class Model {
 
     public function save() {
         global $con;
-        $reflect = new \ReflectionObject($this);
+        $reflect = new \ReflectionObject($this); // Aktuelle Tabelle ausgewählt
         $fields = [];
-        foreach ($reflect->getProperties(\ReflectionProperty::IS_PUBLIC) as $prop) {
-            $fileds[$prop->getName()] = $this->{$prop->getName()};
+        foreach ($reflect->getProperties(\ReflectionProperty::IS_PUBLIC) as $prop) { // Liest jede key einzel
+            $fileds[$prop->getName()] = $this->{$prop->getName()}; // Speichert Werte zu key ab.
         }
 
         if($this->id > 0) {

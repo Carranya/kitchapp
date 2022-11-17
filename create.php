@@ -14,13 +14,29 @@
     )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con->query($sql);
 
-    $sql = "CREATE TABLE IF NOT EXISTS items (
+    $sql = "CREATE TABLE IF NOT EXISTS inventory (
         id INT(255) NOT NULL AUTO_INCREMENT,
         productId INT(255) NOT NULL,
         amount INT(255) NOT NULL,
         PRIMARY KEY (id)
     )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con->query($sql);
+
+    // Beispieldaten
+
+    $sql = "INSERT INTO products (productName, unit) VALUES
+    ('Butter', 'g'),
+    ('Wasser', 'L'),
+    ('Eier', 'Stück')";
+    $con->query($sql);
+
+    $sql = "INSERT INTO inventory (productId, amount) values
+    (1, 100),
+    (2, 3),
+    (3, 6)
+    ";
+    $con->query($sql);
+
 ?>
 
 <h1>Datensätze erstellt</h1>

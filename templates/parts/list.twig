@@ -4,13 +4,12 @@
     {% for content in contents %}
         {% if step == 0 %}
             <div class='p-3 bg-pink-200 flex justify-between'>
-                {{ content }}
-                <span>2 Stück</span>
+                {{ content.productName }}
             </div>
             {% set step = step + 1 %}
         {% else %}
             <div class='p-3 bg-pink-100'>
-                {{ content }}
+                {{ content.unit }}
             </div>
             {% set step = step - 1 %}
         {% endif %}

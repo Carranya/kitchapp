@@ -1,5 +1,5 @@
 <?php
-    function findAll($objectType, $id){
+    function findAll($objectType){
         global $con;
 
         $o = new $objectType();
@@ -11,7 +11,7 @@
 
         $collection = [];
 
-        $rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQL_ASSOC);
+        $rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
         
         foreach($rows AS $row) {
             $object = new $objectType();

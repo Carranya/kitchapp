@@ -3,7 +3,7 @@
         <?php
             showMenuButton('shopping', 'shopping', 'Einkaufsliste');
             showMenuButton('inventory', 'inventory', 'Lager');
-            showMenuButton('', 'products', 'Produkte');
+            showMenuButton('products', 'products', 'Produkte');
             showMenuButton('', 'recipes', 'Rezepte');
             showMenuButton('', 'cookbook', 'Kochbuch');
         ?>

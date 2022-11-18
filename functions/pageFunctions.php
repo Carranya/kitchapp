@@ -8,7 +8,7 @@ function includePages($page) {
 
 function showMenuButton($buttonLink, $buttonPic, $buttonName){
     global $twig;
-    echo $twig->render('parts/menuButton.twig', [
+    echo $twig->render('buttons/menuButton.twig', [
         'buttonLink' => $buttonLink,
         'buttonPic' => $buttonPic,
         'buttonName' => $buttonName

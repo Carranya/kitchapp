@@ -9,10 +9,14 @@
             {% set bg = 'bg-pink-100' %}
             {% set step = step - 1 %}
         {% endif %}
-            <div class='p-3 {{ bg }} flex justify-between'>
+            <div class='p-3 {{ bg }} flex justify-between items-center'>
                 <span>{{ product.productName }}</span>
-                <span>{{ product.unit }}</span>
+                <div class='flex items-center'>
+                    <span class='pr-3'>{{ product.unit }}</span>
+                    {% include 'parts/button.twig' %}
+                    {% include 'parts/button.twig' %}
+                </div>
             </div>
-            {% include 'parts/button.twig' %}
+          
     {% endfor %}
 </div>

@@ -1,6 +1,10 @@
 <?php
+    use Kw\Models\Model;
+    use Kw\Models\Inventory;
+    use Kw\Models\Product;
+
     global $twig;
-    $title = 'Lagerliste';
-    $contents = ['Mehl', 'Butter', 'Hefe', 'Wasser'];
-    echo $twig->render('parts/list.twig', ['title' => $title, 'contents' => $contents]);
+    $inventorys = findAll(Inventory::class);
+    $products = findAll(Product::class);
+    echo $twig->render('inventory.twig', ['inventorys' => $inventorys, 'products' => $products]);
 ?>

@@ -3,18 +3,18 @@
 use Kw\Models\Model;
 use Kw\Models\Product;
 
-function modifyData($Class, $id, $data) {
+function modifyData($class, $id, $data) {
+    $o = new $class();
+    $t = $o->getTable();
+    echo $t;
+    // $findData = findOne($o, $id);
     
-    switch($Class) {
-        case 'Product':
-            $modify = findOne(Product::class, $id);
-            break;
-    }
-    
-
-    foreach($data as $key => $value) {
+   /*  foreach($data as $key => $value) {
         echo $key . "<br>";
         echo $value . "<br><br>";
-        // $modify->$key = $value;
-    }
+        
+        print_r($findData);
+        $findData->$key = $value;
+    } */
+    // $findData->save();
 }

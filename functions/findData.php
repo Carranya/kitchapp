@@ -1,4 +1,5 @@
 <?php
+
     function findAll($objectType){
         global $con;
 

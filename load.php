@@ -6,5 +6,5 @@
     require_once ("./models/Inventory.php");
     require_once ("./models/Product.php");
 
-    include "pages/devPages/devButtons.php";
+    require_once("pages/devPages/devButtons.php");
 ?>

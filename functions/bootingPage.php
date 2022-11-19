@@ -1,4 +1,5 @@
 <?php
+
     require_once ('./vendor/autoload.php');
     require_once ('./settings/settings.php');
 
@@ -9,4 +10,5 @@
 
     global $DB;
     $con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
+    
 ?>

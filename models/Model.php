@@ -12,7 +12,7 @@ class Model {
         $reflect = new \ReflectionObject($this); // Aktuelle Tabelle ausgewählt
         $fields = [];
         foreach ($reflect->getProperties(\ReflectionProperty::IS_PUBLIC) as $prop) { // Liest jede key einzel
-            $fileds[$prop->getName()] = $this->{$prop->getName()}; // Speichert Werte zu key ab.
+            $fields[$prop->getName()] = $this->{$prop->getName()}; // Speichert Werte zu key ab.
         }
 
         if($this->id > 0) {
@@ -22,7 +22,7 @@ class Model {
                 $items[] = " `{$key}`= '{$value}'";
             }
             $query .= implode(",", $items);
-            $query .= " WHERE `id` = '{$this->id}' LIMIT 1";
+            $query .= " WHERE id = {$this->id} LIMIT 1";
 
             if(!$con->query($query)) {
                 throw new \Exception(mysqli_error($con));
@@ -30,7 +30,7 @@ class Model {
         } else {
             $query = "INSERT INTO " . $this->table . " (";
             $query .= implode(",", array_keys($fields)) . ") VALUES (";
-            $query .= "'" . implode("','", array_values($fileds)) . "')";
+            $query .= "'" . implode("','", array_values($fields)) . "')";
             if($con->query($query)) {
                 $this->id = $con->insert_id;
             } else {

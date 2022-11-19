@@ -1,21 +1,15 @@
 <link rel="stylesheet" href="css/output.css">
 <?php
 
+use Kw\Models\Model;
+use Kw\Models\Product;
+
 require_once("./load.php");
-require_once("functions/dataFunctions.php");
 
-/* $modifys = ['product' => 'Mehl', 'unit' => 'g', 'amount' => 3];
-
-foreach($modifys as $key => $value){
-    // echo $modify . "<br>";
-    // print_r($modify);
-
-    echo $key . " : " . $value . "<br>";
-}
- */
-$data = ['productName' => 'Erdnussbutter', 'unit' => 'kg'];
+$data = ['productName' => 'Butter', 'unit' => 'g'];
 
 modifyData('Product', 1, $data);
+
 
 ?>
 

@@ -1,5 +1,15 @@
 <?php
 
+function modifyData($class, $id, $data) {
+
+    require_once("pickData.php");
+
+    foreach($data as $key => $value) {
+        $findData->$key = $value;
+    } 
+    $findData->save();
+}
+
     function findAll($objectType){
         global $con;
 
@@ -34,7 +44,7 @@
             throw new Exception("Property table not set in model");
         }
 
-        $row = $con->query("SELECT * FROM {$table} WHERE id = $id LIMIT 1");
+        $row = $con->query("SELECT * FROM {$table} WHERE id = {$id} LIMIT 1");
 
         if($row->num_rows == 0){
             return NULL;

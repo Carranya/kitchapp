@@ -4,17 +4,17 @@ use Kw\Models\Model;
 use Kw\Models\Product;
 
 function modifyData($class, $id, $data) {
-    $o = new $class();
-    $t = $o->getTable();
-    echo $t;
-    // $findData = findOne($o, $id);
-    
-   /*  foreach($data as $key => $value) {
-        echo $key . "<br>";
-        echo $value . "<br><br>";
-        
-        print_r($findData);
+
+    /* switch($class){
+        case 'Product':
+            $findData = findOne(Product::class, $id);
+            break;
+    } */
+    $findData = findOne(Product::class, $id);
+    $findData->productName = 'Erdnussbutter';
+
+    /* foreach($data as $key => $value) {
         $findData->$key = $value;
     } */
-    // $findData->save();
+    $findData->save();
 }

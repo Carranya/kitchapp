@@ -9,8 +9,15 @@ require_once("./load.php");
 
 // showVar($_SERVER);
 
-$data = ['productName' => 'Cola', 'unit' => 'Liter'];
-modifyData('Product', 2, $data);
+/* $data = ['productName' => 'Cola', 'unit' => 'Liter'];
+modifyData('Product', 2, $data); */
+
+$test = findAll(Product::class);
+
+showVar($test);
+
+
+
 /* class Test {
 
     public $container;

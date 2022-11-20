@@ -1,7 +1,7 @@
 <div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
     <h1 class='text-center text-2xl font-bold underline mb-3'>Produkte</h1>
     {% set step = 0 %}
-    {% for product in products %}
+    {% for data in products %}
         {% if step == 0 %}
             {% set bg = 'bg-pink-200' %}
             {% set step = step + 1 %}
@@ -9,14 +9,29 @@
             {% set bg = 'bg-pink-100' %}
             {% set step = step - 1 %}
         {% endif %}
-            <div class='p-3 {{ bg }} flex justify-between items-center'>
-                <span>{{ product.productName }}</span>
+
+        <div class='p-3 {{ bg }} flex justify-between items-center'>
+            {% if pickToModify == data.id %}
+                <span><input name='modProductName' size='16' value='{{ data.productName }}'></span>
+                <select name='newUnit'>
+                    <option value='g'>Gramm</option>
+                    <option value='L'>Liter</option>
+                    <option value='Stück'>Stück</option>
+                    <option value='cm'>Zentimeter</option>
+                </select>
+                {% include 'buttons/modifyButton.twig' %}
+                {% include 'buttons/cancelButton.twig' %}
+            {% else %}
+                <span>{{ data.productName }}</span>
                 <div class='flex items-center'>
-                    <span class='pr-3'>{{ product.unit }}</span>
-                    {% include 'buttons/pickToModifyButton.twig' %}
-                    {% include 'buttons/deleteButton.twig' %}
+                    <span class='pr-3'>{{ data.unit }}</span>
+                    {% if isProductPage %}
+                        {% include 'buttons/pickToModifyButton.twig' %}
+                        {% include 'buttons/deleteButton.twig' %}
+                    {% endif %}
                 </div>
-            </div>
+            {% endif %}
+        </div>
     {% endfor %}
     <div class='p-3 mt-5 bg-pink-100 flex justify-between items-center border border-solid border-pink-400'>
         <input name='newProduct' size='16' placeholder='Produkt hinzufügen'>

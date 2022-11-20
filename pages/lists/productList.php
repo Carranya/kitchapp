@@ -4,5 +4,10 @@
 
     global $twig;
     $products = findAll(Product::class);
-    echo $twig->render('products.twig', ['products' => $products]);
+
+    echo $twig->render('products.twig',
+    ['products' => $products,
+    'isProductPage' => isset($productPage),
+    'pickToModify' => @$_POST['pickToModify']
+    ]);
 ?>

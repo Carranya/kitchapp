@@ -1,7 +1,7 @@
 <?php
     require_once "functions/bootingPage.php";
 
-    global $con;
+    $con = createSamples();
     $con->query("DROP DATABASE kitchenwiz");
     $con->query("CREATE DATABASE IF NOT EXISTS kitchenwiz");
     $con->select_db("kitchenwiz");

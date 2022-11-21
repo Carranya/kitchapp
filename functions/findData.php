@@ -1,60 +1,21 @@
 <?php
 
-function modifyData($class, $id, $data) {
+function findData($objectType, $id=0){
+    $o = new $objectType;
+    $table = $o->getTable();
+    $orderBy = $o->getOrderBy();
+    // $con = "mysql:host=localhost;user=root;dbname=kitchenwiz";
+    $query = mysqlConnect();
+    if($id == 0){
+        $getData = $query->prepare("SELECT * FROM $table ORDER BY $orderBy");
+        $getData->execute();
+        $collection = $getData->fetchAll(PDO::FETCH_ASSOC);
+    } else {
+        $getData = $query->prepare("SELECT * FROM $table WHERE id = $id ORDER BY $orderBy");
+        $getData->execute();
+        $collection = $getData->fetch(PDO::FETCH_ASSOC);
+    }
 
-    require_once("pickData.php");
-
-    foreach($data as $key => $value) {
-        $findData->$key = $value;
-    } 
-    $findData->save();
+    return $collection;
 }
-
-    function findAll($objectType){
-        global $con;
-
-        $o = new $objectType();
-        $table = $o->getTable();
-        $orderBy = $o->getOrder();
-        if(empty($table)){
-            throw new Exception("Porperty table not set in model");
-        }
-
-        $collection = [];
-
-        $rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
-        
-        foreach($rows AS $row) {
-            $object = new $objectType();
-            foreach($row AS $key => $value) {
-                $object->$key = $value;
-            }
-            $collection[] = $object;
-        }
-
-        return $collection;
-    }
-
-    function findOne($objectType, $id){
-        global $con;
-
-        $o = new $objectType();
-        $table = $o->getTable();
-        if(empty($table)) {
-            throw new Exception("Property table not set in model");
-        }
-
-        $row = $con->query("SELECT * FROM {$table} WHERE id = {$id} LIMIT 1");
-
-        if($row->num_rows == 0){
-            return NULL;
-        }
-
-        $object = new $objectType();
-        foreach($row->fetch_assoc() AS $key => $value) {
-            $object->$key = $value;
-        }
-
-        return $object;
-    }
 ?>

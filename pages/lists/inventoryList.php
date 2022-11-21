@@ -4,7 +4,15 @@
     use Kw\Models\Product;
 
     global $twig;
-    $inventorys = findAll(Inventory::class);
-    $products = findAll(Product::class);
-    echo $twig->render('inventory.twig', ['inventorys' => $inventorys, 'products' => $products]);
+
+    $currentPage = 'inventory';
+
+    $inventory = findData(Inventory::class);
+    $products = findData(Product::class);
+    echo $twig->render('inventory.twig',[
+        'inventory' => $inventory,
+        'products' => $products,
+        'currentPage' => $currentPage,
+        'pickToModify' => @$_POST['pickToModify']
+    ]);
 ?>

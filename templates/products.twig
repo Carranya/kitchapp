@@ -12,8 +12,8 @@
 
         <div class='p-3 {{ bg }} flex justify-between items-center'>
             {% if pickToModify == data.id %}
-                <span><input name='modProductName' size='16' value='{{ data.productName }}'></span>
-                <select name='newUnit'>
+                <span><input name='productName' size='16' value='{{ data.productName }}'></span>
+                <select name='unit'>
                     <option value='g'>Gramm</option>
                     <option value='L'>Liter</option>
                     <option value='Stück'>Stück</option>
@@ -25,7 +25,7 @@
                 <span>{{ data.productName }}</span>
                 <div class='flex items-center'>
                     <span class='pr-3'>{{ data.unit }}</span>
-                    {% if isProductPage %}
+                    {% if currentPage == 'products' %}
                         {% include 'buttons/pickToModifyButton.twig' %}
                         {% include 'buttons/deleteButton.twig' %}
                     {% endif %}
@@ -34,7 +34,7 @@
         </div>
     {% endfor %}
     <div class='p-3 mt-5 bg-pink-100 flex justify-between items-center border border-solid border-pink-400'>
-        <input name='newProduct' size='16' placeholder='Produkt hinzufügen'>
+        <input name='newProductName' size='16' placeholder='Produkt hinzufügen'>
         <div class='flex items-center'>
             <span class='pr-3'>
                 <select name='newUnit'>

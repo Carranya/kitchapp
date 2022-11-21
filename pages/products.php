@@ -1,10 +1,32 @@
 <form action='index.php?page=products' method='post'>
 
 <?php
-    $productPage = true;
 
+use Kw\Models\Model;
+use Kw\Models\Product;
 
-    include 'lists/productList.php';
+    $currentPage = 'products';
+
+    if(isset($_POST['modify'])){
+        $id = $_POST['modify'];
+        $saveData = new Product;
+        $saveData->inputData($_POST['productName'], $_POST['unit']);
+        $saveData->save($id);
+    }
+
+    if(isset($_POST['createProduct'])){
+        $saveData = new Product;
+        $saveData->inputData($_POST['newProductName'], $_POST['newUnit']);
+        $saveData->save();
+    }
+
+    if(isset($_POST['delete'])){
+        $id = $_POST['delete'];
+        $saveData = new Product;
+        $saveData->delete($id);
+    }
+
+    include 'lists/productsList.php';
 ?>
 
 </form>

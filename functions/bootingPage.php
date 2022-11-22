@@ -13,9 +13,4 @@
         $con = "mysql:host=" . $DB['hostname'] . ";port=" . $DB['port'] . ";dbname=" . $DB['database'];
         return new PDO($con, $DB['username'], $DB['password']);
     }
-    
-    function createSamples(){
-        global $DB;
-        return new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
-    }
 ?>

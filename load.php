@@ -5,6 +5,7 @@
     require_once ("./models/Model.php");
     require_once ("./models/Inventory.php");
     require_once ("./models/Product.php");
+    require_once ("./models/Recipe.php");
 
     require_once("pages/devPages/devButtons.php");
 ?>

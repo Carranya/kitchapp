@@ -1,5 +1,5 @@
 <?php
-    require_once "settings/settings.php";
+    require_once "config/config.php";
 
 
     $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);

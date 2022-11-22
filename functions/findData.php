@@ -4,8 +4,8 @@ function findData($objectType, $id=0){
     $o = new $objectType;
     $table = $o->getTable();
     $orderBy = $o->getOrderBy();
-    // $con = "mysql:host=localhost;user=root;dbname=kitchenwiz";
     $query = mysqlConnect();
+
     if($id == 0){
         $getData = $query->prepare("SELECT * FROM $table ORDER BY $orderBy");
         $getData->execute();
@@ -16,6 +16,18 @@ function findData($objectType, $id=0){
         $collection = $getData->fetch(PDO::FETCH_ASSOC);
     }
 
+    return $collection;
+}
+
+function findCol($objectType, $col, $name){
+    $o = new $objectType;
+    $table = $o->getTable();
+    $orderBy = $o->getOrderBy();
+    $query = mysqlConnect();
+    
+    $getData = $query->prepare("SELECT * FROM $table WHERE $col = '$name' ORDER BY $orderBy");
+    $getData->execute();
+    $collection = $getData->fetchAll(PDO::FETCH_ASSOC);
     return $collection;
 }
 ?>

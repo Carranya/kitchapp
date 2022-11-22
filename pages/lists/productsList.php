@@ -3,6 +3,7 @@
     use \Kw\Models\Product;
 
     global $twig;
+    // $products = findData(Product::class);
     $products = findData(Product::class);
 
     echo $twig->render('products.twig',

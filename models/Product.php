@@ -5,7 +5,7 @@ use Kw\Models\Model;
 
 class Product extends Model {
     protected $table = "products";
-    protected $orderBy = "id";
+    protected $orderBy = "productName";
     public $data = [];
 
     public function inputData($productName, $unit){

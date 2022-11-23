@@ -59,17 +59,29 @@ function convert($items){
 }
 
 function convert2($items){
-    // $productId['amount'] = 0;
+    $productId['amount'] = 0;
+
+    $coll = [];
+    $index = 0;
+    $item = [
+        ['productId' => 1, 'amount' => 100],
+        ['productId' => 2, 'amount' => 100]
+    ];
+
     foreach($items as $item){
-        foreach($item as $key => $value){
-            
-            $o = new Listing;
-            $o->$key = $value;
-            $o->check();
-            xx($o);
+
+        foreach($item as $key =>$value){
+            if($key == 'productId'){
+                $coll[$index][$key] = $value;
+            }
+            if($key == 'amount'){
+                $coll[$index][$key] = $value;
+            }
         }
+        $index++;
+        // $coll[] = $item;
     }
-    // return $productId;
+    return $coll;
 }
 
 $list = findData(Inventory::class);

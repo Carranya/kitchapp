@@ -23,8 +23,10 @@
                             <span class='pr-3'>
                                 <input name='amount' size='10' value='{{ data.amount }}'>
                             </span>
-                            {% include 'buttons/modifyButton.twig' %}
-                            {% include 'buttons/cancelButton.twig' %}
+                            <div class='flex items-center'>
+                                {% include 'buttons/modifyButton.twig' %}
+                                {% include 'buttons/cancelButton.twig' %}
+                            </div>
                         </div>
                     {% else %}
                         <span>{{ product.productName }}</span>

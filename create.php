@@ -66,6 +66,13 @@
     ";
     $query->query($sql);
 
+    $sql = "INSERT INTO ingredients (recipeId, productId, amount) values
+    (1, 1, 100), 
+    (1, 2, 3),
+    (1, 3, 6)
+    ";
+    $query->query($sql);
+
 ?>
 
 <h1>Datensätze erstellt</h1>

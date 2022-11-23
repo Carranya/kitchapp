@@ -19,8 +19,10 @@
                     <option value='Stück'>Stück</option>
                     <option value='cm'>Zentimeter</option>
                 </select>
-                {% include 'buttons/modifyButton.twig' %}
-                {% include 'buttons/cancelButton.twig' %}
+                <div class='flex items-center'>
+                    {% include 'buttons/modifyButton.twig' %}
+                    {% include 'buttons/cancelButton.twig' %}
+                </div>
             {% else %}
                 <span>{{ data.productName }}</span>
                 <div class='flex items-center'>

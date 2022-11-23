@@ -19,7 +19,7 @@ function findData($objectType, $id=0){
     return $collection;
 }
 
-function findCol($objectType, $col, $name){
+function findDataByCol($objectType, $col, $name){
     $o = new $objectType;
     $table = $o->getTable();
     $orderBy = $o->getOrderBy();

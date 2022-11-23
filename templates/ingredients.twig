@@ -1,0 +1,60 @@
+<div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
+    <h1 class='text-center text-2xl font-bold underline mb-3'>{{ recipe.recipeName }}</h1>
+    {% set step = 0 %}
+    {% for data in ingredients %}
+        {% for product in products %}
+            {% if data.productId == product.id %}
+                {% if step == 0 %}
+                    {% set bg = 'bg-pink-200' %}
+                    {% set step = step + 1 %}
+                {% else %}
+                    {% set bg = 'bg-pink-100' %}
+                    {% set step = step - 1 %}
+                {% endif %}
+        
+                <div class='p-3 {{ bg }} flex justify-between items-center'>
+                    {% if pickToModifyIngredient == data.id %}
+                        <select name='productId'>
+                            {% for product in products %}
+                                <option value='{{ product.id }}'>{{ product.productName }} / {{ product.unit }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class='flex items-center'>
+                            <span class='pr-3'>
+                                <input name='amount' size='10' value='{{ data.amount }}'>
+                            </span>
+                            <div class='flex items-center'>
+                                {% include 'buttons/modifyButton.twig' %}
+                                {% include 'buttons/cancelButton.twig' %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <span>{{ product.productName }}</span>
+                        <div class='flex items-center'>
+                            <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
+                            {% if currentPage == 'ingredients' %}
+                                <input type='hidden' name='showIngredients' value={{ id }}>
+                                {% include 'buttons/pickToModifyIngredientButton.twig' %}
+                                {% include 'buttons/deleteButton.twig' %}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <div class='p-3 mt-5 bg-pink-100 flex justify-between items-center border border-solid border-pink-400'>
+        <input name='newProductName' size='16' placeholder='Produkt hinzufügen'>
+        <div class='flex items-center'>
+            <span class='pr-3'>
+                <select name='newUnit'>
+                    <option value='g'>Gramm</option>
+                    <option value='L'>Liter</option>
+                    <option value='Stück'>Stück</option>
+                    <option value='cm'>Zentimeter</option>
+                </select>
+            </span>
+            {% include 'buttons/createProductButton.twig' %}
+        </div>
+    </div>
+</div>

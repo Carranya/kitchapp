@@ -23,7 +23,7 @@ require_once("./load.php");
 } */
 
 
-class Listing extends Model {
+/* class Listing extends Model {
     protected $table = "inventory";
     protected $orderBy = "id";
     
@@ -44,30 +44,14 @@ class Listing extends Model {
         
         return $coll;
     }
-}
+} */
 
 function convert($items){
-    $productId = [];
-    foreach($items as $item){
-        foreach($item as $key => $value){
-            if($key == 'productId'){
-                $productId[] = $key;
-            }
-        }
-    }
-    return $productId;
-}
-
-function convert2($items){
     $productId['amount'] = 0;
 
     $coll = [];
     $index = 0;
-    $item = [
-        ['productId' => 1, 'amount' => 100],
-        ['productId' => 2, 'amount' => 100]
-    ];
-
+   
     foreach($items as $item){
 
         foreach($item as $key =>$value){
@@ -85,7 +69,8 @@ function convert2($items){
 }
 
 $list = findData(Inventory::class);
-$prod = convert2($list);
+$prod = convert($list);
+
 xx($prod);
 
 

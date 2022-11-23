@@ -7,7 +7,9 @@ use Kw\Models\Inventory;
 use Kw\Models\Recipe;
 
 function xx($v){
-    var_dump($v);
+    echo "<pre>";
+    print_r($v);
+    echo "</pre>";
 }
 
 require_once("./load.php");
@@ -67,6 +69,7 @@ function convert($items){
     }
     return $coll;
 }
+
 
 $list = findData(Inventory::class);
 $prod = convert($list);

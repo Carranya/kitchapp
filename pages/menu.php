@@ -5,7 +5,7 @@
             showMenuButton('inventory', 'inventory', 'Lager');
             showMenuButton('products', 'products', 'Produkte');
             showMenuButton('recipes', 'recipes', 'Rezepte');
-            showMenuButton('', 'cookbook', 'Kochbuch');
+            // showMenuButton('', 'cookbook', 'Kochbuch');
         ?>
     </div>
 </div>

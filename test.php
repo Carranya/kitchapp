@@ -49,11 +49,10 @@ require_once("./load.php");
 } */
 
 function convert($items){
-    $productId['amount'] = 0;
 
     $coll = [];
-    $index = 0;
-   
+    $index = 0;   
+
     foreach($items as $item){
 
         foreach($item as $key =>$value){
@@ -65,16 +64,29 @@ function convert($items){
             }
         }
         $index++;
-        // $coll[] = $item;
     }
     return $coll;
+}
+
+function check($list){
+    for($i=0; $i<count($list); $i++){
+        for($j=0; $j<count($list); $j++){
+                if($list[$i]['productId'] == $list[$j]['productId'] && $i != $j){
+                    $list[$i]['amount'] = $list[$i]['amount'] + $list[$j]['amount'];
+                    unset($list[$j]);
+                }
+        }
+    }
+    return $list;
 }
 
 
 $list = findData(Inventory::class);
 $prod = convert($list);
+$test = check($prod);
 
-xx($prod);
+
+xx($test);
 
 
 
@@ -84,6 +96,9 @@ $test->check();
 
     
 xx($test); */
+
+
+
 
 
 

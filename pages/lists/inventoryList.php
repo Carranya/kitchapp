@@ -5,10 +5,9 @@
 
     global $twig;
 
-    $currentPage = 'inventory';
-
     $inventory = findData(Inventory::class);
     $products = findData(Product::class);
+
     echo $twig->render('inventory.twig',[
         'inventory' => $inventory,
         'products' => $products,

@@ -10,11 +10,8 @@
         protected $orderBy = "recipeId";
         public $data = [];
 
-        public function inputData(
-            $recipeId,
-            $productId,
-            $amount
-        ){
+        public function inputData($recipeId, $productId, $amount){
+            
             $this->data = [
                 'recipeId' => $recipeId,
                 'productId' => $productId,

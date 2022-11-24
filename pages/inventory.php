@@ -6,6 +6,9 @@ use Kw\Models\Model;
 use Kw\Models\Inventory;
 use Kw\Models\Product;
 
+$currentPage = 'inventory';
+$currentList = findData(Inventory::class);
+
     if(isset($_POST['modify'])){
         $id = $_POST['modify'];
         $saveData = new Inventory;
@@ -14,15 +17,17 @@ use Kw\Models\Product;
     }
 
     if(isset($_POST['create'])){
+
         $saveData = new Inventory;
         $saveData->inputData($_POST['newProductId'], $_POST['newAmount']);
-        $saveData->save();
+        $id = $saveData->check($currentList);
+        $saveData->save($id);
     }
 
     if(isset($_POST['delete'])){
         $id = $_POST['delete'];
-        $saveData = new Inventory;
-        $saveData->delete($id);
+        $deleteData = new Inventory;
+        $deleteData->delete($id);
     }
 
     if(isset($_POST['createProduct'])){

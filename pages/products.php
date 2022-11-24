@@ -22,8 +22,8 @@ use Kw\Models\Product;
 
     if(isset($_POST['delete'])){
         $id = $_POST['delete'];
-        $saveData = new Product;
-        $saveData->delete($id);
+        $deleteData = new Product;
+        $deleteData->delete($id);
     }
 
     include 'lists/productsList.php';

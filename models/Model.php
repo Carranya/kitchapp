@@ -44,4 +44,26 @@ class Model {
         $deleteData = $query->prepare("DELETE FROM $this->table WHERE id = $id");
         $deleteData->execute();
     }
+
+    public function check($currentList, $id=0){
+        $this->currentList = $currentList;
+        $check = [];
+        $index = 0;
+
+        foreach($this->currentList as $list){
+            foreach($list as $key => $value){
+                if($key ==  'productId'){
+                    $check[$key] = $value;
+                    if($check[$key] == $this->productId){
+                        $this->amount = $this->amount + $this->currentList[$index]['amount'];
+                        $id = $this->currentList[$index]['id'];
+
+                        $this->createData();
+                    }
+                }
+            }
+            $index++;    
+        }
+        return $id;
+    }
 }

@@ -34,7 +34,7 @@
                             <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
                             {% if currentPage == 'ingredients' %}
                                 <input type='hidden' name='showIngredients' value={{ id }}>
-                                {% include 'buttons/pickToModifyIngredientButton.twig' %}
+                                {% include 'buttons/pickToModifyButton.twig' %}
                                 {% include 'buttons/deleteButton.twig' %}
                             {% endif %}
                         </div>

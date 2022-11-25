@@ -17,7 +17,6 @@ $currentList = findData(Inventory::class);
     }
 
     if(isset($_POST['create'])){
-
         $saveData = new Inventory;
         $saveData->inputData($_POST['newProductId'], $_POST['newAmount']);
         $id = $saveData->check($currentList);

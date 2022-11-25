@@ -9,8 +9,14 @@ class Recipe extends Model{
     public $data = [];
 
     public function inputData($recipeName){
+
+        $this->recipeName;
+        $this->createData();
+    }
+
+    public function createData(){
         $this->data = [
-            'recipeName' => $recipeName
+            'recipeName' => $this->recipeName
         ];
     }
 }

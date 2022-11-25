@@ -15,10 +15,9 @@
     $products = findData(Product::class);
 
     echo $twig->render('ingredients.twig', [
-        'id' => $id,
         'ingredients' => $ingredients,
         'recipe' => $recipe,
         'products' => $products,
         'currentPage' => $currentPage,
-        'pickToModifyIngredient' => @$_POST['pickToModifyIngredient']
+        'pickToModify' => @$_POST['pickToModify']
     ]);

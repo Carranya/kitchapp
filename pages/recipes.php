@@ -18,6 +18,17 @@
         $saveData->save($id);
     }
 
+    if(isset($_POST['create'])){
+        $currentList = findDataByCol(Ingredient::class, 'recipeId', $_POST['recipeId']);
+        $saveData = new Ingredient;
+        $saveData->inputProduct(
+            $_POST['newProductName'],
+            $_POST['newUnit'],
+        );
+        $id = $saveData->checkProduct($currentList);
+        $saveData->save($id);
+    }
+
     include "lists/recipesList.php";
 
     if(isset($_POST['showIngredients'])){

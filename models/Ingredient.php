@@ -18,25 +18,11 @@
             $this->createData();
         }
 
-        public function inputProduct($productName, $unit){
-            
-            $this->productName = $productName;
-            $this->unit = $unit;
-            $this->createProduct();
-        }
-
         public function createData(){
             $this->data = [
                 'recipeId' => $this->recipeId,
                 'productId' => $this->productId,
                 'amount' => $this->amount
-            ];
-        }
-
-        public function createProduct(){
-            $this->data = [
-                'productName' => $this->productName,
-                'unit' => $this->unit
             ];
         }
     }

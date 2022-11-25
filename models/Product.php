@@ -9,9 +9,16 @@ class Product extends Model {
     public $data = [];
 
     public function inputData($productName, $unit){
+
+        $this->productName = $productName;
+        $this->unit = $unit;
+        $this->createData();
+    }
+
+    public function createData(){
         $this->data = [
-            'productName' => $productName,
-            'unit' => $unit
+            'productName' => $this->productName,
+            'unit' => $this->unit
         ];
     }
 }

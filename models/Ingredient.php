@@ -12,10 +12,17 @@
 
         public function inputData($recipeId, $productId, $amount){
             
+            $this->recipeId = $recipeId;
+            $this->productId = $productId;
+            $this->amount = $amount;
+            
+        }
+
+        public function createData(){
             $this->data = [
-                'recipeId' => $recipeId,
-                'productId' => $productId,
-                'amount' => $amount
+                'recipeId' => $this->recipeId,
+                'productId' => $this->productId,
+                'amount' => $this->amount
             ];
         }
     }

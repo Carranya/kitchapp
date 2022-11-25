@@ -14,7 +14,8 @@
                 {% endif %}
         
                 <div class='p-3 {{ bg }} flex justify-between items-center'>
-                    {% if pickToModifyIngredient == data.id %}
+                    {% if pickToModify == data.id %}
+                        <input type='hidden' name='recipeId' value={{ recipe.id }}>
                         <select name='productId'>
                             {% for product in products %}
                                 <option value='{{ product.id }}'>{{ product.productName }} / {{ product.unit }}</option>
@@ -34,7 +35,7 @@
                         <div class='flex items-center'>
                             <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
                             {% if currentPage == 'ingredients' %}
-                                <input type='hidden' name='showIngredients' value={{ id }}>
+                                <input type='hidden' name='showIngredients' value={{ recipe.id }}>
                                 {% include 'buttons/pickToModifyButton.twig' %}
                                 {% include 'buttons/deleteButton.twig' %}
                             {% endif %}

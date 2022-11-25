@@ -66,4 +66,26 @@ class Model {
         }
         return $id;
     }
+
+    public function checkProduct($currentList, $id=0){
+        $this->currentList = $currentList;
+        $check = [];
+        $index = 0;
+
+        foreach($this->currentList as $list){
+            foreach($list as $key => $value){
+                if($key ==  'productName'){
+                    $check[$key] = $value;
+                    if($check[$key] == $this->productName){
+                        $this->unit = $this->unit + $this->currentList[$index]['unit'];
+                        $id = $this->currentList[$index]['id'];
+
+                        $this->createProduct();
+                    }
+                }
+            }
+            $index++;    
+        }
+        return $id;
+    }
 }

@@ -7,6 +7,21 @@
 
     $currentPage = 'recipes';
     
+    //Recipe actions
+    if(isset($_POST['create'])){
+        $saveData = new Recipe;
+        $saveData->inputData($_POST['newRecipeName']);
+        $saveData->save();
+    }
+
+    if(isset($_POST['delete'])){
+        $deleteData = new Recipe;
+        $deleteData->delete($_POST['delete']);
+    }
+
+
+
+    //Ingredients actions
     if(isset($_POST['modify'])){
         $id = $_POST['modify'];
         $saveData = new Ingredient;
@@ -18,7 +33,7 @@
         $saveData->save($id);
     }
     
-    if(isset($_POST['create'])){
+    if(isset($_POST['addIngredients'])){
         $saveData = new Ingredient;
         $saveData->inputData(
             $_POST['recipeId'],
@@ -26,7 +41,6 @@
             $_POST['newAmount'],
         );
         $currentList = findDataByCol(Ingredient::class, 'recipeId', $_POST['recipeId']);
-        // var_dump($currentList);
         $id = $saveData->check($currentList);
         $saveData->save($id);
     }

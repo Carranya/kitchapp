@@ -6,7 +6,7 @@
     use Kw\Models\Ingredient;
 
     $currentPage = 'recipes';
-
+    
     if(isset($_POST['modify'])){
         $id = $_POST['modify'];
         $saveData = new Ingredient;
@@ -15,6 +15,19 @@
             $_POST['productId'],
             $_POST['amount'],
         );
+        $saveData->save($id);
+    }
+    
+    if(isset($_POST['create'])){
+        $saveData = new Ingredient;
+        $saveData->inputData(
+            $_POST['recipeId'],
+            $_POST['newProductId'],
+            $_POST['newAmount'],
+        );
+        $currentList = findDataByCol(Ingredient::class, 'recipeId', $_POST['recipeId']);
+        // var_dump($currentList);
+        $id = $saveData->check($currentList);
         $saveData->save($id);
     }
 

@@ -10,7 +10,7 @@ class Recipe extends Model{
 
     public function inputData($recipeName){
 
-        $this->recipeName;
+        $this->recipeName = $recipeName;
         $this->createData();
     }
 

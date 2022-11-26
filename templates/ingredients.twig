@@ -55,6 +55,7 @@
             <span class='pr-3'>
                 <input name='newAmount' size='10' placeholder='Menge'>
             </span>
+            <input type='hidden' name='recipeId' value={{ recipe.id }}>
             {% include 'buttons/createButton.twig' %}
         </div>
     </div>

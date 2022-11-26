@@ -3,8 +3,20 @@
 <?php
     use Kw\Models\Model;
     use Kw\Models\Recipe;
+    use Kw\Models\Ingredient;
 
     $currentPage = 'recipes';
+
+    if(isset($_POST['modify'])){
+        $id = $_POST['modify'];
+        $saveData = new Ingredient;
+        $saveData->inputData(
+            $_POST['recipeId'],
+            $_POST['productId'],
+            $_POST['amount'],
+        );
+        $saveData->save($id);
+    }
 
     include "lists/recipesList.php";
 

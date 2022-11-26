@@ -15,7 +15,7 @@
             $this->recipeId = $recipeId;
             $this->productId = $productId;
             $this->amount = $amount;
-            
+            $this->createData();
         }
 
         public function createData(){

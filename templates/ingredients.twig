@@ -45,17 +45,16 @@
         {% endfor %}
     {% endfor %}
     <div class='p-3 mt-5 bg-pink-100 flex justify-between items-center border border-solid border-pink-400'>
-        <input name='newProductName' size='16' placeholder='Produkt hinzufügen'>
+        <select name='newProductId'>
+            {% for product in products %}
+                <option value='{{ product.id }}'>{{ product.productName }} / {{ product.unit }}</option>
+            {% endfor %}
+        </select>
         <div class='flex items-center'>
             <span class='pr-3'>
-                <select name='newUnit'>
-                    <option value='g'>Gramm</option>
-                    <option value='L'>Liter</option>
-                    <option value='Stück'>Stück</option>
-                    <option value='cm'>Zentimeter</option>
-                </select>
+                <input name='newAmount' size='10' placeholder='Menge'>
             </span>
-            {% include 'buttons/createProductButton.twig' %}
+            {% include 'buttons/createButton.twig' %}
         </div>
     </div>
 </div>

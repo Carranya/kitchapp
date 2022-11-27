@@ -7,7 +7,7 @@
 
     global $twig;
 
-    $id = $_POST['showIngredients'];
+    // $id = $_POST['showIngredients'];
     $currentPage = 'ingredients';
 
     $ingredients = findDataByCol(Ingredient::class, 'recipeId', $id);

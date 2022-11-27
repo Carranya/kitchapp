@@ -10,8 +10,8 @@
 
     if(isset($_POST['showIngredients'])){
         $currentId = $_POST['showIngredients'];
-    } else {
-        $currentId = @$_POST['currentId'];
+    } else if(isset($_POST['currentId'])){
+        $currentId = $_POST['currentId'];
     }
 
     if(isset($currentId)){
@@ -27,6 +27,7 @@
         'recipe' => $recipe,
         'products' => $products,
         'currentPage' => $currentPage,
+        'pickToModifyRecipeName' => @$_POST['pickToModifyRecipeName'],
         'pickToModify' => @$_POST['pickToModify']
     ]);
 }

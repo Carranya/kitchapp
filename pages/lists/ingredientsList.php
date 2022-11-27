@@ -7,11 +7,19 @@
 
     global $twig;
 
-    // $id = $_POST['showIngredients'];
+
+    if(isset($_POST['showIngredients'])){
+        $currentId = $_POST['showIngredients'];
+    } else {
+        $currentId = @$_POST['currentId'];
+    }
+
+    if(isset($currentId)){
+
     $currentPage = 'ingredients';
 
-    $ingredients = findDataByCol(Ingredient::class, 'recipeId', $id);
-    $recipe = findData(Recipe::class, $id);
+    $ingredients = findDataByCol(Ingredient::class, 'recipeId', $currentId);
+    $recipe = findData(Recipe::class, $currentId);
     $products = findData(Product::class);
 
     echo $twig->render('ingredients.twig', [
@@ -21,3 +29,4 @@
         'currentPage' => $currentPage,
         'pickToModify' => @$_POST['pickToModify']
     ]);
+}

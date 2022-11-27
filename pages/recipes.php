@@ -20,6 +20,14 @@
         $deleteData->delete($_POST['delete']);
     }
 
+    if(isset($_POST['modifyRecipeName'])){
+        $id = $_POST['modifyRecipeName'];
+        $saveData = new Recipe;
+        $saveData->inputData(
+            $_POST['recipeName'],
+        );
+        $saveData->save($id);
+    }
 
 
     //Ingredients actions

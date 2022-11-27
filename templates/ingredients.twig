@@ -35,9 +35,9 @@
                         <div class='flex items-center'>
                             <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
                             {% if currentPage == 'ingredients' %}
-                                <input type='hidden' name='showIngredients' value={{ recipe.id }}>
+                                <input type='hidden' name='currentId' value={{ recipe.id }}>
                                 {% include 'buttons/pickToModifyButton.twig' %}
-                                {% include 'buttons/deleteButton.twig' %}
+                                {% include 'buttons/deleteIngredientButton.twig' %}
                             {% endif %}
                         </div>
                     {% endif %}

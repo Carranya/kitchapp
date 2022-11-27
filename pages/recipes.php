@@ -52,38 +52,7 @@
     }
 
     include "lists/recipesList.php";
-    
-    /* if(isset($_POST['showIngredients'])){
-        if (@$id != $_POST['showIngredients']){
-            $id = $_POST['showIngredients'];
-        } else {
-            $id = $_POST['currentId'];
-        }
-        include "lists/ingredientsList.php";
-    } */
+    include "lists/ingredientsList.php";
 
-    if(isset($_POST['showIngredients'])){
-        $id = $_POST['showIngredients'];
-    } else if (isset($_POST['currentId'])){
-        if ($id != @$_POST['showIngredients']){
-            $id = $_POST['showIngredients'];
-        } else {
-            $id = $_POST['currentId'];
-        }
-    } else if (isset($_POST['create'])){
-        $newId = findDataByCol(Recipe::class, 'recipeName', $_POST['newRecipeName']);
-        // var_dump($newId);
-        $id = $newId[0]['id'];
-    }
-
-    if(isset($id)){
-        include "lists/ingredientsList.php";
-    }
-    /* if(isset($_POST['showIngredients'])){
-        $id = $_POST['showIngredients'];
-    } else {
-        $id = 1;
-    }
-    include "lists/ingredientsList.php"; */
 ?>
 </form>

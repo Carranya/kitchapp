@@ -20,33 +20,25 @@
                 {% endif %}
         
                 <div class='p-3 {{ bg }} flex justify-between items-center'>
-                    {% if pickToModify == data.id %}
-                        <input type='hidden' name='recipeId' value={{ recipe.id }}>
-                        <select name='productId'>
-                            {% for product in products %}
-                                <option value='{{ product.id }}'>{{ product.productName }} / {{ product.unit }}</option>
-                            {% endfor %}
-                        </select>
-                        <div class='flex items-center'>
+                    <span>{{ product.productName }}</span>
+                    <div class='flex items-center'>
+                        {% if pickToModify == data.id %}
                             <span class='pr-3'>
                                 <input name='amount' size='10' value='{{ data.amount }}'>
                             </span>
-                            <div class='flex items-center'>
-                                {% include 'buttons/modifyButton.twig' %}
-                                {% include 'buttons/cancelButton.twig' %}
-                            </div>
-                        </div>
-                    {% else %}
-                        <span>{{ product.productName }}</span>
-                        <div class='flex items-center'>
+                            <input type='hidden' name='recipeId' value={{ recipe.id }}>
+                            <input type='hidden' name='productId' value={{ data.productId }}>
+                            {% include 'buttons/modifyButton.twig' %}
+                            {% include 'buttons/cancelButton.twig' %}
+                        {% else %}
                             <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
                             {% if currentPage == 'ingredients' %}
                                 <input type='hidden' name='currentId' value={{ recipe.id }}>
                                 {% include 'buttons/pickToModifyButton.twig' %}
                                 {% include 'buttons/deleteIngredientButton.twig' %}
                             {% endif %}
-                        </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
                 </div>
             {% endif %}
         {% endfor %}

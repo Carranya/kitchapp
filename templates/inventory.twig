@@ -20,10 +20,8 @@
                                 <input type='hidden' name='productId' value='{{ data.productId }}'>
                                 <input name='amount' size='10' value='{{ data.amount }}'>
                             </span>
-                            <div class='flex items-center'>
-                                {% include 'buttons/modifyButton.twig' %}
-                                {% include 'buttons/cancelButton.twig' %}
-                            </div>
+                            {% include 'buttons/modifyButton.twig' %}
+                            {% include 'buttons/cancelButton.twig' %}
                         {% else %}
                             <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
                             {% if currentPage == 'inventory' %}

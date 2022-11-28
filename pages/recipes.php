@@ -6,18 +6,42 @@
     use Kw\Models\Recipe;
     use Kw\Models\Ingredient;
 
+    global $twig;
     $currentPage = 'recipes';
     
     //Recipe actions
     if(isset($_POST['create'])){
-        $saveData = new Recipe;
-        $saveData->inputData($_POST['newRecipeName']);
-        $saveData->save();
+        $nameOccupied = 0;
+
+        $currentItems = findData(Recipe::class);
+        foreach($currentItems as $currentItem){
+            if($currentItem['recipeName'] == $_POST['newRecipeName']){
+                echo $twig->render('errorSigns/errorRecipeName.twig');
+                $nameOccupied++;
+            }
+        }
+        if($nameOccupied == 0){
+            $saveData = new Recipe;
+            $saveData->inputData($_POST['newRecipeName']);
+            $saveData->save();
+            $findRecipe = findDataByCol(Recipe::class, 'recipeName', $_POST['newRecipeName']);
+            $currentId = $findRecipe[0]['id'];
+        }
     }
 
     if(isset($_POST['delete'])){
         $deleteData = new Recipe;
         $deleteData->delete($_POST['delete']);
+
+        $deleteIngredients = findDataByCol(Ingredient::class, 'recipeId', $_POST['delete']);
+        foreach($deleteIngredients as $deleteIngredient){
+            $deleteData = new Ingredient;
+            $deleteData->delete($deleteIngredient['id']);
+        }
+
+        if (isset($_POST['currentId'])){
+            unset($_POST['currentId']);
+        }
     }
 
     if(isset($_POST['modifyRecipeName'])){

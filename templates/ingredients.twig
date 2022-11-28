@@ -1,5 +1,8 @@
 <div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
-    <a href='index.php?page=recipes'><img src='img/icons/close.png' class='w-7 h-7'></a>
+    <div class='flex justify-between'>
+        <a href='index.php?page=recipes'><img src='img/icons/close.png' class='w-7 h-7'></a>
+        {% include 'buttons/addProductsButton.twig' %}
+    </div>
     {% if pickToModifyRecipeName %}
         <h1 class='text-center text-2xl font-bold underline mb-3 items-center'><input name='recipeName' size='12' value='{{ recipe.recipeName }}'>{% include 'buttons/modifyRecipeNameButton.twig' %}{% include 'buttons/cancelButton.twig' %}</h1>
     {% else %}

@@ -4,6 +4,7 @@
     session_start();
     use Kw\Models\Model;
     use Kw\Models\Recipe;
+    use Kw\Models\Product;
     use Kw\Models\Ingredient;
 
     global $twig;
@@ -83,8 +84,15 @@
         $deleteData->delete($_POST['deleteIngredient']);
     }
 
+    //Create Products actions
+
+    if(isset($_POST['createProduct'])){
+        $saveData = new Product;
+        $saveData->inputData($_POST['newProductName'], $_POST['newUnit']);
+        $saveData->save();
+    }
+
     include "lists/recipesList.php";
     include "lists/ingredientsList.php";
-
 ?>
 </form>

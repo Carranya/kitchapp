@@ -36,7 +36,10 @@ if(isset($_POST['createProduct'])){
 }
 
 include 'lists/inventoryList.php';
-echo $twig->render('createProducts.twig');
+
+if(isset($_POST['addProducts'])){
+    echo $twig->render('createProducts.twig');
+}
 ?>
 
 </form>

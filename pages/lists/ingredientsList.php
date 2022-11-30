@@ -29,9 +29,5 @@
         'currentPage' => $currentPage,
         'pickToModifyRecipeName' => @$_POST['pickToModifyRecipeName'],
         'pickToModify' => @$_POST['pickToModify']
-    ]);
-
-    if(isset($_POST['addProducts'])){
-        echo $twig->render('createProducts.twig');
-    }
+    ]); 
 }

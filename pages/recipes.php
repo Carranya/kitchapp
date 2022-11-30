@@ -12,15 +12,17 @@
     
     //Recipe actions
     if(isset($_POST['create'])){
-        $nameOccupied = 0;
-
+        // $nameOccupied = 0;
         $currentItems = findData(Recipe::class);
+        $nameOccupied = recipeNameCheck($currentItems, $_POST['newRecipeName']);
+
+        /* $currentItems = findData(Recipe::class);
         foreach($currentItems as $currentItem){
             if($currentItem['recipeName'] == $_POST['newRecipeName']){
                 echo $twig->render('errorSigns/errorRecipeName.twig');
                 $nameOccupied++;
             }
-        }
+        } */
         if($nameOccupied == 0){
             $saveData = new Recipe;
             $saveData->inputData($_POST['newRecipeName']);
@@ -46,12 +48,21 @@
     }
 
     if(isset($_POST['modifyRecipeName'])){
-        $id = $_POST['modifyRecipeName'];
-        $saveData = new Recipe;
-        $saveData->inputData(
-            $_POST['recipeName'],
-        );
-        $saveData->save($id);
+        
+        $check = findDataByCol(Recipe::class, 'id', $_POST['modifyRecipeName']);
+        if($check[0]['recipeName'] != $_POST['recipeName']){
+            $currentItems = findData(Recipe::class);
+            $nameOccupied = recipeNameCheck($currentItems, $_POST['recipeName']);
+            
+            if($nameOccupied == 0){
+                $id = $_POST['modifyRecipeName'];
+                $saveData = new Recipe;
+                $saveData->inputData(
+                    $_POST['recipeName'],
+                );
+                $saveData->save($id);
+            }
+        }
     }
 
 
@@ -94,5 +105,9 @@
 
     include "lists/recipesList.php";
     include "lists/ingredientsList.php";
+
+    if(isset($_POST['addProducts'])){
+        echo $twig->render('createProducts.twig');
+    }
 ?>
 </form>

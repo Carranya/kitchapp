@@ -3,6 +3,7 @@
     require_once ("./functions/pageFunctions.php");
     require_once ("./functions/findData.php");
     require_once ("./functions/checkFunctions.php");
+    require_once ("./functions/dataFunctions.php");
     require_once ("./models/Model.php");
     require_once ("./models/Inventory.php");
     require_once ("./models/Product.php");

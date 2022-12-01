@@ -14,7 +14,7 @@
     if(isset($_POST['create'])){
         // $nameOccupied = 0;
         $currentItems = findData(Recipe::class);
-        $nameOccupied = recipeNameCheck($currentItems, $_POST['newRecipeName']);
+        $nameOccupied = nameCheck($currentItems, $_POST['newRecipeName'], 'recipeName');
 
         /* $currentItems = findData(Recipe::class);
         foreach($currentItems as $currentItem){
@@ -52,7 +52,7 @@
         $check = findDataByCol(Recipe::class, 'id', $_POST['modifyRecipeName']);
         if($check[0]['recipeName'] != $_POST['recipeName']){
             $currentItems = findData(Recipe::class);
-            $nameOccupied = recipeNameCheck($currentItems, $_POST['recipeName']);
+            $nameOccupied = nameCheck($currentItems, $_POST['recipeName'], 'recipeName');
             
             if($nameOccupied == 0){
                 $id = $_POST['modifyRecipeName'];
@@ -98,9 +98,14 @@
     //Create Products actions
 
     if(isset($_POST['createProduct'])){
-        $saveData = new Product;
-        $saveData->inputData($_POST['newProductName'], $_POST['newUnit']);
-        $saveData->save();
+        createProduct($_POST['newProductName'], $_POST['newUnit']);
+     /*    $currentItems = findData(Product::class);
+        $nameOccupied = nameCheck($currentItems, $_POST['newProductName'], 'productName');
+        if($nameOccupied == 0){
+            $saveData = new Product;
+            $saveData->inputData($_POST['newProductName'], $_POST['newUnit']);
+            $saveData->save();
+        } */
     }
 
     include "lists/recipesList.php";

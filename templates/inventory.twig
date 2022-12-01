@@ -1,7 +1,9 @@
 <div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
     <div class='flex justify-between'>
         <a href='index.php?page=inventory' title='schliessen'><img src='img/icons/close.png' class='w-7 h-7'></a>
-        {% include 'buttons/addProductsButton.twig' %}
+        {% if currentPage == 'inventory' %}
+            {% include 'buttons/addProductsButton.twig' %}
+        {% endif %}
     </div>
     <h1 class='text-center text-2xl font-bold underline mb-3'>Lager</h1>
     {% set step = 0 %}

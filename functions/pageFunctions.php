@@ -14,5 +14,3 @@ function showMenuButton($buttonLink, $buttonPic, $buttonName){
         'buttonName' => $buttonName
     ]);
 }
-
-?>

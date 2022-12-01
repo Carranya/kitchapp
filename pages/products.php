@@ -15,9 +15,11 @@ use Kw\Models\Product;
     }
 
     if(isset($_POST['createProduct'])){
-        $saveData = new Product;
+        createProduct($_POST['newProductName'], $_POST['newUnit']);
+
+        /* $saveData = new Product;
         $saveData->inputData($_POST['newProductName'], $_POST['newUnit']);
-        $saveData->save();
+        $saveData->save(); */
     }
 
     if(isset($_POST['delete'])){

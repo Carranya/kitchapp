@@ -11,15 +11,3 @@ function nameCheck($currentItems, $newName, $indexName){
     }
     return $nameOccupied;
 }
-
-/* function productNameCheck($currentItems, $newName){
-    global $twig;
-    $nameOccupied = 0;
-    foreach($currentItems as $currentItem){
-        if($currentItem['productName'] == $newName){
-            echo $twig->render('errorSigns/errorProductName.twig');
-            $nameOccupied++;
-        }
-    }
-    return $nameOccupied;
-} */

@@ -99,13 +99,6 @@
 
     if(isset($_POST['createProduct'])){
         createProduct($_POST['newProductName'], $_POST['newUnit']);
-     /*    $currentItems = findData(Product::class);
-        $nameOccupied = nameCheck($currentItems, $_POST['newProductName'], 'productName');
-        if($nameOccupied == 0){
-            $saveData = new Product;
-            $saveData->inputData($_POST['newProductName'], $_POST['newUnit']);
-            $saveData->save();
-        } */
     }
 
     include "lists/recipesList.php";

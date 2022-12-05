@@ -1,0 +1,37 @@
+<div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
+    <h1 class='text-center text-2xl font-bold underline mb-3'>Aktive Rezepte</h1>
+    {% set step = 0 %}
+    {% for data in active %}
+        {% for recipe in recipes %}
+            {% if data.recipeId == recipe.id %}
+                {% if step == 0 %}
+                    {% set bg = 'bg-pink-200' %}
+                    {% set step = step + 1 %}
+                {% else %}
+                    {% set bg = 'bg-pink-100' %}
+                    {% set step = step - 1 %}
+                {% endif %}
+
+                <div class='p-3 {{ bg }} flex justify-between items-center'>
+                    <span>{{ recipe.recipeName }}</span>
+                    <div class='flex items-center'>
+                        <span class='pr-3'>{{ data.amount }} Pers.</span>
+                        {% include 'buttons/pickToModifyButton.twig' %}
+                        {% include 'buttons/deleteButton.twig' %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    <div class='p-3 mt-5 bg-pink-100 flex justify-between items-center border border-solid border-pink-400'>
+        <select name='newRecipeId'>
+            {% for recipe in recipes %}
+                <option value={{ recipe.id }}>{{ recipe.recipeName }}</option>
+            {% endfor %}
+        </select>
+        <div class='flex items-center'>
+            <input name='newAmount' size='5' value=1><span>&nbspPers.</span>
+            {% include 'buttons/createButton.twig' %}
+        </div>
+    </div>
+</div>

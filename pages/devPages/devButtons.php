@@ -5,7 +5,7 @@
 </div>
 
 <?php
-    function showVar($value){
+    function ff($value){
         echo "<pre>";
             var_dump($value);
         echo "</pre>";

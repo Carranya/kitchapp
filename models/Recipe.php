@@ -5,7 +5,7 @@ use Kw\Models\Model;
 
 class Recipe extends Model{
     protected $table = "recipes";
-    protected $orderBy = "recipeName";
+    protected $orderBy = "id";
     public $data = [];
 
     public function inputData($recipeName){

@@ -4,6 +4,7 @@
             showMenuButton('shopping', 'shopping', 'Einkaufsliste');
             showMenuButton('inventory', 'inventory', 'Lager');
             showMenuButton('products', 'products', 'Produkte');
+            showMenuButton('active', 'cookbook', 'Aktive Rezepte');
             showMenuButton('recipes', 'recipes', 'Rezepte');
             // showMenuButton('', 'cookbook', 'Kochbuch');
         ?>

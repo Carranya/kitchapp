@@ -88,6 +88,12 @@
     ";
     $query->query($sql);
 
+    $sql = "INSERT INTO active (recipeId, amount) VALUES 
+    (1, 4),
+    (2, 2)
+    ";
+    $query->query($sql);
+
 ?>
 
 <h1>Datensätze erstellt</h1>

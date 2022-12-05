@@ -5,20 +5,42 @@ use Kw\Models\Model;
 
 class Active extends Model{
     protected $table = "active";
-    protected $orderBy = "recipeName";
+    protected $orderBy = "recipeId";
     public $data = [];
 
-    public function inputData($recipeName, $amount){
+    public function inputData($recipeId, $amount){
 
-        $this->recipeName = $recipeName;
+        $this->recipeId = $recipeId;
         $this->amount = $amount;
         $this->createData();
     }
 
     public function createData(){
         $this->data = [
-            'recipeName' => $this->recipeName,
+            'recipeId' => $this->recipeId,
             'amount' => $this->amount,
         ];
+    }
+
+    public function checkRecipe($currentList, $id=0){
+        $this->currentList = $currentList;
+        $check = [];
+        $index = 0;
+
+        foreach($this->currentList as $list){
+            foreach($list as $key => $value){
+                if($key ==  'recipeId'){
+                    $check[$key] = $value;
+                    if($check[$key] == $this->recipeId){
+                        $this->amount = $this->amount + $this->currentList[$index]['amount'];
+                        $id = $this->currentList[$index]['id'];
+
+                        $this->createData();
+                    }
+                }
+            }
+            $index++;    
+        }
+        return $id;
     }
 }

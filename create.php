@@ -43,6 +43,21 @@
     )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $query->query($sql);
 
+    $sql = "CREATE TABLE IF NOT EXISTS active(
+        id INT(255) NOT NULL AUTO_INCREMENT,
+        recipeId INT(255) NOT NULL,
+        amount INT(255) NOT NULL,
+        PRIMARY KEY (id)
+    )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
+    $query->query($sql);
+
+    $sql = "CREATE TABLE IF NOT EXISTS totalList (
+        id INT(255) NOT NULL AUTO_INCREMENT,
+        productId INT(255) NOT NULL,
+        amount INT(255) NOT NULL,
+        PRIMARY KEY (id)
+    )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
+    $query->query($sql);
 
     // Beispieldaten erstellen
 

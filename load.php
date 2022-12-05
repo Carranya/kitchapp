@@ -9,6 +9,8 @@
     require_once ("./models/Product.php");
     require_once ("./models/Recipe.php");
     require_once ("./models/Ingredient.php");
+    require_once ("./models/Active.php");
+    require_once ("./models/TotalList.php");
 
     require_once("pages/devPages/devButtons.php");
 ?>

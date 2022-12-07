@@ -15,9 +15,16 @@
                 <div class='p-3 {{ bg }} flex justify-between items-center'>
                     <span>{{ recipe.recipeName }}</span>
                     <div class='flex items-center'>
-                        <span class='pr-3'>{{ data.amount }} Pers.</span>
-                        {% include 'buttons/pickToModifyButton.twig' %}
-                        {% include 'buttons/deleteButton.twig' %}
+                        {% if pickToModify == data.id %}
+                            <span class='pr-3'><input name='amount' size='5' value={{ data.amount }}> Pers.</span>
+                            <input type='hidden' name='recipeId' value='{{ data.recipeId }}'>
+                            {% include 'buttons/modifyButton.twig' %}
+                            {% include 'buttons/cancelButton.twig' %}
+                        {% else %}
+                            <span class='pr-3'>{{ data.amount }} Pers.</span>
+                            {% include 'buttons/pickToModifyButton.twig' %}
+                            {% include 'buttons/deleteButton.twig' %}
+                        {% endif %}
                     </div>
                 </div>
             {% endif %}

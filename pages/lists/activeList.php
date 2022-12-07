@@ -13,5 +13,6 @@
     echo $twig->render('active.twig',[
         'active' => $active,
         'recipes' => $recipes,
+        'pickToModify' => @$_POST['pickToModify'],
     ]);
 ?>

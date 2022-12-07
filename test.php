@@ -14,40 +14,7 @@ function xx($v){
 
 require_once("./load.php");
 
-
-/* class Listing{
-    public $list;
-    
-    public function __construct(Inventory $list){
-        $this->list = $list;
-    }
-    
-} */
-
-
-/* class Listing extends Model {
-    protected $table = "inventory";
-    protected $orderBy = "id";
-    
-    public function inputData($productId, $amount){
-        $this->data = [
-            'productId' => $productId,
-            'amount' => $amount
-        ];
-    }
-    
-    public function check(){
-        $ref = new \ReflectionObject($this);
-        $coll = [];
-        
-        foreach($ref->getProperties(\ReflectionProperty::IS_PUBLIC) as $item){
-            $coll[$item->getName()] = $this->{$item->getName()};
-        }
-        
-        return $coll;
-    }
-} */
-
+/* 
 function convert($items){
 
     $coll = [];
@@ -86,17 +53,10 @@ $prod = convert($list);
 $test = check($prod);
 
 
-xx($test);
-
-
-
-/* $test = new Listing;
-$test->list = $list;
-$test->check();
-
-    
 xx($test); */
 
+
+calculateTotalList();
 
 
 

@@ -1,0 +1,24 @@
+<div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
+    <h1 class='text-center text-2xl font-bold underline mb-3'>Total Zutaten</h1>
+    {% set step = 0 %}
+    {% for data in totalList %}
+        {% for product in products %}
+            {% if data.productId == product.id %}
+                {% if step == 0 %}
+                    {% set bg = 'bg-pink-200' %}
+                    {% set step = step + 1 %}
+                {% else %}
+                    {% set bg = 'bg-pink-100' %}
+                    {% set step = step - 1 %}
+                {% endif %}
+
+                <div class='p-3 {{ bg }} flex justify-between items-center'>
+                    <span>{{ product.productName }}</span>
+                    <div class='flex items-center'>
+                        <span class='pr-3'>{{ data.amount }} {{ product.unit }}</span>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>

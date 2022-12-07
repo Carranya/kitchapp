@@ -15,6 +15,19 @@ if(isset($_POST['create'])){
     $saveData->save($id);
 }
 
+if(isset($_POST['modify'])){
+    $id = $_POST['modify'];
+    $saveData = new Active;
+    $saveData->inputData($_POST['recipeId'], $_POST['amount']);
+    $saveData->save($id);
+}
+
+if(isset($_POST['delete'])){
+    $id = $_POST['delete'];
+    $deleteData = new Active;
+    $deleteData->delete($id);
+}
+
 include 'lists/activeList.php';
 // include 'lists/totalList.php';
 /* 

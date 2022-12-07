@@ -13,6 +13,7 @@ if(isset($_POST['create'])){
     $currentList = findData(Active::class);
     $id = $saveData->checkRecipe($currentList);
     $saveData->save($id);
+    calculateTotalList();
 }
 
 if(isset($_POST['modify'])){
@@ -20,16 +21,18 @@ if(isset($_POST['modify'])){
     $saveData = new Active;
     $saveData->inputData($_POST['recipeId'], $_POST['amount']);
     $saveData->save($id);
+    calculateTotalList();
 }
 
 if(isset($_POST['delete'])){
     $id = $_POST['delete'];
     $deleteData = new Active;
     $deleteData->delete($id);
+    calculateTotalList();
 }
 
 include 'lists/activeList.php';
-// include 'lists/totalList.php';
+include 'lists/totalList.php';
 /* 
 $currentPage = 'inventory';
 

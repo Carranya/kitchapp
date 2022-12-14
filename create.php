@@ -27,6 +27,14 @@
     )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $query->query($sql);
 
+    $sql = "CREATE TABLE IF NOT EXISTS shopping (
+        id INT(255) NOT NULL AUTO_INCREMENT,
+        productId INT(255) NOT NULL,
+        amount INT(255) NOT NULL,
+        PRIMARY KEY (id)
+    )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
+    $query->query($sql);
+
     $sql = "CREATE TABLE IF NOT EXISTS recipes (
         id INT(255) NOT NULL AUTO_INCREMENT,
         recipeName VARCHAR(255) NOT NULL,
@@ -71,6 +79,13 @@
     (1, 100),
     (2, 3),
     (3, 6)
+    ";
+    $query->query($sql);
+
+    $sql = "INSERT INTO shopping (productId, amount) values
+    (1, 50),
+    (2, 5),
+    (3, 3)
     ";
     $query->query($sql);
 

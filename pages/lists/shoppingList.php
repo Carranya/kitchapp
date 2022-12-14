@@ -1,6 +1,17 @@
 <?php
+    use Kw\Models\Model;
+    use Kw\Models\Shopping;
+    use Kw\Models\Product;
+
     global $twig;
-    $title = 'Einkaufsliste';
-    $contents = ['Mehl', 'Butter', 'Hefe', 'Wasser'];
-    echo $twig->render('parts/list.twig', ['title' => $title, 'contents' => $contents]);
+
+    $shopping = findData(Shopping::class);
+    $products = findData(Product::class);
+
+    echo $twig->render('shopping.twig',[
+        'shopping' => $shopping,
+        'products' => $products,
+        'currentPage' => $currentPage,
+        'pickToModify' => @$_POST['pickToModify']
+    ]);
 ?>

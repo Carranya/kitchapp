@@ -1,7 +1,14 @@
+<form action='index.php?page=shopping' method='post'>
+
 <?php
 
-$currentPage = 'shoppingList';
+$currentPage = 'shopping';
 
-    // include 'lists/shoppingList.php';
-    include 'lists/inventoryList.php';
+    include 'lists/shoppingList.php';
+
+    if(isset($_POST['showInventory'])){
+        include 'lists/inventoryList.php';
+    }
 ?>
+
+</form>

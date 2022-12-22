@@ -1,8 +1,9 @@
 <div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
-    <div class='flex justify-between'>
+    <div class='flex justify-end'>
         {% if currentPage == 'shopping' %}
             <div></div>
             {% include 'buttons/showInventory.twig' %}
+            {% include 'buttons/addProductsButton.twig' %}
         {% endif %}
     </div>
     <h1 class='text-center text-2xl font-bold underline mb-3'>Einkaufsliste</h1>

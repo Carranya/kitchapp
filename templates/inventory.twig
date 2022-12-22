@@ -1,13 +1,13 @@
 <div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
-    <div class='flex justify-between'>
-        {% if currentPage != 'inventory' %}
-            <a href='index.php?page=shopping' title='schliessen'><img src='img/icons/close.png' class='w-7 h-7'></a>
-        {% endif %}
-        {% if currentPage == 'inventory' %}
-            <div></div>
+    {% if currentPage == 'inventory' %}
+        <div class='flex justify-end'>
             {% include 'buttons/addProductsButton.twig' %}
-        {% endif %}
-    </div>
+        </div>
+    {% else %}
+        <div class='flex'>
+            <a href='index.php?page=shopping' title='schliessen'><img src='img/icons/close.png' class='w-7 h-7'></a>
+        </div>
+    {% endif %}
     <h1 class='text-center text-2xl font-bold underline mb-3'>Lager</h1>
     {% set step = 0 %}
     {% for data in inventory %}

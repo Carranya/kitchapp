@@ -103,7 +103,7 @@
 
     include "lists/recipesList.php";
     include "lists/ingredientsList.php";
-
+    
     if(isset($_POST['addProducts'])){
         echo $twig->render('createProducts.twig');
     }

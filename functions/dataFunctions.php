@@ -59,94 +59,50 @@ function calculateTotalList(){
     }
 }
 
-/* function calculateAmount(){
-    global $twig;
-    $check = [];
-    $totalList = findData(TotalList::class);
-    $inventory = findData(Inventory::class);
-    $shopping = findData(Shopping::class);
-    foreach($totalList as $totalProduct){
-        $productId = $totalProduct['productId'];
-        foreach($inventory as $inventoryProduct){
-            if(isset($check[$productId])){
-                continue;
-            }
-            $check[$productId] = true;
-            if($totalProduct['productId'] == $inventoryProduct['productId'])
-            {
-                if($totalProduct['amount'] > $inventoryProduct['amount']){
-                    $amount = $totalProduct['amount'] - $inventoryProduct['amount'];
-                    addShopping($productId, $amount);
-
-                    $product = findData(Product::class, $productId);
-                    echo $twig->render('sign/addShopping.twig', [
-                        'productName' => $product['productName'],
-                        'amount' => $amount,
-                        'unit' => $product['unit'],
-                    ]); 
-                }
-            } else {
-                $amount = $totalProduct['amount'];
-                addShopping($productId, $amount);
-                $product = findData(Product::class, $productId);
-
-                echo $twig->render('sign/addShopping.twig', [
-                    'productName' => $product['productName'],
-                    'amount' => $amount,
-                    'unit' => $product['unit'],
-                ]); 
-            }
-        }
-    }
-} */
-
 function calculateAmount(){
     global $twig;
-    $check = [];
     $totalList = findData(TotalList::class);
     $inventory = findData(Inventory::class);
     $shopping = findData(Shopping::class);
-    foreach($totalList as $totalProduct){
-        $productId = $totalProduct['productId'];
-        foreach($inventory as $inventoryProduct){
-            if(isset($check[$productId])){
-                continue;
-            }
-            $check[$productId] = true;
-            if($totalProduct['productId'] == $inventoryProduct['productId'])
-            {
-                if($totalProduct['amount'] > $inventoryProduct['amount']){
-                    $amount = $totalProduct['amount'] - $inventoryProduct['amount'];
-                    addShopping($productId, $amount);
+    $totalId = [];
+    $inventId = [];
 
-                    $product = findData(Product::class, $productId);
-                    echo $twig->render('sign/addShopping.twig', [
-                        'productName' => $product['productName'],
-                        'amount' => $amount,
-                        'unit' => $product['unit'],
-                    ]); 
-                }
-            } else {
-                $amount = $totalProduct['amount'];
-                addShopping($productId, $amount);
-                $product = findData(Product::class, $productId);
+    foreach($totalList as $value){
+        $totalId[] = $value['productId'];
+    }
 
+    foreach($inventory as $value){
+        $inventId[] = $value['productId'];
+    }
+
+    foreach($totalId as $totId){
+        if(in_array($totId, $inventId)){
+
+            $totalProduct = findDataByCol(TotalList::class, 'productId', $totId);
+            $inventoryProduct = findDataByCol(Inventory::class, 'productId', $totId);
+
+            if($totalProduct[0]['amount'] > $inventoryProduct[0]['amount']){
+                $amount = $totalProduct[0]['amount'] - $inventoryProduct[0]['amount'];
+                addShopping($totalProduct[0]['productId'], $amount);
+
+                $product = findData(Product::class, $totalProduct[0]['productId']);
                 echo $twig->render('sign/addShopping.twig', [
                     'productName' => $product['productName'],
                     'amount' => $amount,
                     'unit' => $product['unit'],
                 ]); 
             }
+        } else {
+            $totalProduct = findDataByCol(TotalList::class, 'productId', $totId);
+            $amount = $totalProduct[0]['amount'];
+
+            addShopping($totalProduct[0]['productId'], $amount);
+            $product = findData(Product::class, $totalProduct[0]['productId']);
+            echo $twig->render('sign/addShopping.twig', [
+                'productName' => $product['productName'],
+                'amount' => $amount,
+                'unit' => $product['unit'],
+            ]); 
         }
     }
-}
-                
-
-
-function addShopping($productId, $amount){
-    $saveData = new Shopping;
-    $saveData->inputData($productId, $amount);
-    $currentList = findData(Shopping::class);
-    $id = $saveData->check($currentList);
-    $saveData->save($id);
 }

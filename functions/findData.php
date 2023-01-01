@@ -1,5 +1,8 @@
 <?php
 
+use Kw\Models\Inventory;
+use Kw\Models\Shopping;
+
 function findData($objectType, $id=0){
     $o = new $objectType;
     $table = $o->getTable();
@@ -30,4 +33,19 @@ function findDataByCol($objectType, $col, $name){
     $collection = $getData->fetchAll(PDO::FETCH_ASSOC);
     return $collection;
 }
-?>
+
+function addShopping($productId, $amount){
+    $saveData = new Shopping;
+    $saveData->inputData($productId, $amount);
+    $currentList = findData(Shopping::class);
+    $id = $saveData->check($currentList);
+    $saveData->save($id);
+}
+
+function addInventory($productId, $amount){
+    $saveData = new Inventory;
+    $saveData->inputData($productId, $amount);
+    $currentList = findData(Inventory::class);
+    $id = $saveData->check($currentList);
+    $saveData->save($id);
+}

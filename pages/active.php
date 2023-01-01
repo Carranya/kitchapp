@@ -4,8 +4,10 @@
 
 use Kw\Models\Model;
 use Kw\Models\Active;
-// use Kw\Models\Inventory;
-// use Kw\Models\Product;
+use Kw\Models\Inventory;
+use Kw\Models\Product;
+
+$currentPage = 'active';
 
 if(isset($_POST['create'])){
     $saveData = new Active;
@@ -31,8 +33,13 @@ if(isset($_POST['delete'])){
     calculateTotalList();
 }
 
+if(isset($_POST['calculateAmount'])){
+    calculateAmount();
+}
+
 include 'lists/activeList.php';
 include 'lists/totalList.php';
+include 'lists/inventoryList.php';
 /* 
 $currentPage = 'inventory';
 

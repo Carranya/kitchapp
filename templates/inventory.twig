@@ -3,7 +3,7 @@
         <div class='flex justify-end'>
             {% include 'buttons/addProductsButton.twig' %}
         </div>
-    {% else %}
+    {% elseif currentPage != 'active' %}
         <div class='flex'>
             <a href='index.php?page=shopping' title='schliessen'><img src='img/icons/close.png' class='w-7 h-7'></a>
         </div>

@@ -106,3 +106,27 @@ function calculateAmount(){
         }
     }
 }
+
+function doneRecipe($id){
+    $doneRecipe = findData(Active::class, $id);
+    $recipeId = $doneRecipe['recipeId'];
+    $doneIngredients = findDataByCol(Ingredient::class, 'recipeId', $recipeId);
+    $inventory = findData(Inventory::class);
+
+    foreach($doneIngredients as $doneIngredient){
+        foreach($inventory as $checkInv){
+            if($checkInv['productId'] == $doneIngredient['productId']){
+                $modifyInventory = new Inventory;
+                $doneAmount = $doneIngredient['amount'] * $doneRecipe['amount'];
+                $newAmount = $checkInv['amount'] - $doneAmount;
+
+                if($newAmount <= 0){
+                    $modifyInventory->delete($checkInv['id']);
+                } else {
+                    $modifyInventory->inputData($doneIngredient['productId'], $newAmount);
+                    $modifyInventory->save($checkInv['id']);
+                }
+            }
+        }
+    }
+}

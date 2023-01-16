@@ -47,7 +47,10 @@ if(isset($_POST['calculateAmount'])){
 
 include 'lists/activeList.php';
 include 'lists/totalList.php';
-include 'lists/inventoryList.php';
+
+if(isset($_POST['showInventory'])){
+    include 'lists/inventoryList.php';
+}
 
 ?>
 </form>

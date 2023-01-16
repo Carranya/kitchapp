@@ -1,4 +1,7 @@
 <div class='inline-block w-96 border border-pink-300 rounded-xl text-left p-3 m-5 bg-pink-300 shadow-xl'>
+    <div class='flex justify-end'>
+            {% include 'buttons/showInventory.twig' %}
+    </div>
     <h1 class='text-center text-2xl font-bold underline mb-3'>Aktive Rezepte</h1>
     {% set step = 0 %}
     {% for data in active %}
@@ -16,7 +19,7 @@
                     <span>{{ recipe.recipeName }}</span>
                     <div class='flex items-center'>
                         {% if pickToModify == data.id %}
-                            <span class='pr-3'><input name='amount' size='5' value={{ data.amount }}> Pers.</span>
+                            <span class='pr-3'><input name='amount' size='5' value='{{ data.amount }}'> Pers.</span>
                             <input type='hidden' name='recipeId' value='{{ data.recipeId }}'>
                             {% include 'buttons/modifyButton.twig' %}
                             {% include 'buttons/cancelButton.twig' %}

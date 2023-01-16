@@ -130,3 +130,34 @@ function doneRecipe($id){
         }
     }
 }
+
+function doneShopping($id){
+    $shopping = findData(Shopping::class, $id);
+    $inventory = findData(Inventory::class);
+    $collection = [];
+
+    foreach($inventory as $list){
+        $collection[] = $list['productId'];
+    }
+
+    if(in_array($shopping['productId'], $collection)){
+        foreach($inventory as $list){
+            if($shopping['productId'] == $list['productId']){
+                $newId = $list['id'];
+                $newAmount = $shopping['amount'] + $list['amount'];
+                $productId = $list['productId'];
+            }
+        }
+    } else {
+        $newId = 0;
+        $newAmount = $shopping['amount'];
+        $productId = $shopping['productId'];
+    }
+
+    $saveData = new Inventory;
+    $saveData->inputData($productId, $newAmount);
+    $saveData->save($newId);
+
+    $deleteData = new Shopping;
+    $deleteData->delete($id);
+}

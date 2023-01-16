@@ -36,6 +36,14 @@ if(isset($_POST['createProduct'])){
     $saveData->save();
 }
 
+//Done
+
+if(isset($_POST['done'])){
+    doneShopping($_POST['done']);
+}
+
+//-------
+
 include 'lists/shoppingList.php';
 
 if(isset($_POST['showInventory'])){

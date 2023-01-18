@@ -14,10 +14,10 @@
             {% if pickToModify == data.id %}
                 <span><input name='productName' size='16' value='{{ data.productName }}'></span>
                 <select name='unit'>
-                    <option value='g'>Gramm</option>
-                    <option value='L'>Liter</option>
+                    <option value='g'>g</option>
+                    <option value='ml'>ml</option>
                     <option value='Stück'>Stück</option>
-                    <option value='cm'>Zentimeter</option>
+                    <option value='cm'>cm</option>
                 </select>
                 {% include 'buttons/modifyButton.twig' %}
                 {% include 'buttons/cancelButton.twig' %}
@@ -38,10 +38,10 @@
         <div class='flex items-center'>
             <span class='pr-3'>
                 <select name='newUnit'>
-                    <option value='g'>Gramm</option>
-                    <option value='L'>Liter</option>
+                    <option value='g'>g</option>
+                    <option value='ml'>ml</option>
                     <option value='Stück'>Stück</option>
-                    <option value='cm'>Zentimeter</option>
+                    <option value='cm'>cm</option>
                 </select>
             </span>
             {% include 'buttons/createProductButton.twig' %}

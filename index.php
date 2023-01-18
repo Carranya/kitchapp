@@ -1,5 +1,8 @@
 <?php
     require_once ("./load.php");
+    if(isset($_SESSION['guest'])){
+        $demo = false;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +31,13 @@
             ?>
         </div>
     </div>
+    <?php
+    if(isset($_SESSION['guest'])){
+        include 'pages/guestlogout.php'; 
+    } else {
+        include 'pages/guestlogin.php'; 
+    }
+    ?>
 <div class='text-sm text-center'>© 2023 <a href='https://karingiang.ch/'>Karin Giang</a></div>
 </body>
 </html>

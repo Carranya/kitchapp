@@ -1,7 +1,6 @@
 <form action='index.php?page=recipes' method='post'>
 
 <?php
-    session_start();
     use Kw\Models\Model;
     use Kw\Models\Recipe;
     use Kw\Models\Product;

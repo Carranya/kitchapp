@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    // session_destroy();
+
     require_once ("./functions/bootingPage.php");
     require_once ("./functions/pageFunctions.php");
     require_once ("./functions/findData.php");

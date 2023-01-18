@@ -422,7 +422,9 @@ video {
 @font-face{
   font-family: 'display-font';
 
-  src:url('/fonts/JosefinSans-VariableFont_wght.ttf');
+  /* src:url('/fonts/JosefinSans-VariableFont_wght.ttf'); */
+
+  src:url('https://karingiang.ch/projects/kitchenwiz/fonts/JosefinSans-VariableFont_wght.ttf');
 }
 
 *, ::before, ::after {
@@ -6420,6 +6422,16 @@ textarea.form-control.is-invalid {
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
 }
 
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
 .bg-pink-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 168 212 / var(--tw-bg-opacity));
@@ -6458,21 +6470,6 @@ textarea.form-control.is-invalid {
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
-}
-
-.bg-green-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
-}
-
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
-}
-
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
 .decoration-slice {

@@ -20,7 +20,7 @@ function createProduct($newProductName, $newUnit){
 
 function refreshTotalList(){
     $query = mysqlConnect();
-        $dropTable = $query->prepare("DROP TABLE TotalList");
+        $dropTable = $query->prepare("DROP TABLE totalList");
         $dropTable->execute();
 
         $sql = "CREATE TABLE IF NOT EXISTS totalList (

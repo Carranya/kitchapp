@@ -13,7 +13,8 @@ class Model {
     }
 
     public function save($id=0){
-        // showVar($this->data);
+        include 'demo/demo.php';
+        // echo "In der Demoversion nicht verfügbar!"; die;
         $query = mysqlConnect();
         if($id == 0){
             $keys = "";
@@ -40,6 +41,10 @@ class Model {
     }
 
     public function delete($id){
+        include 'demo/demo.php';
+
+        // echo "In der Demoversion nicht verfügbar!"; die;
+
         $query = mysqlConnect();
         $deleteData = $query->prepare("DELETE FROM $this->table WHERE id = $id");
         $deleteData->execute();

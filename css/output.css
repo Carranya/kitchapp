@@ -5344,6 +5344,10 @@ textarea.form-control.is-invalid {
   margin-top: 5rem;
 }
 
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -5366,10 +5370,6 @@ textarea.form-control.is-invalid {
 
 .mr-2 {
   margin-right: 0.5rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
 }
 
 .box-border {
@@ -5474,6 +5474,10 @@ textarea.form-control.is-invalid {
 
 .h-7 {
   height: 1.75rem;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .h-full {
@@ -6277,6 +6281,10 @@ textarea.form-control.is-invalid {
   border-radius: 9999px;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -6439,6 +6447,11 @@ textarea.form-control.is-invalid {
 .bg-\[rgb\(255\2c 0\2c 0\)\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .decoration-slice {

@@ -161,3 +161,11 @@ function doneShopping($id){
     $deleteData = new Shopping;
     $deleteData->delete($id);
 }
+
+function allShopped(){
+    $shopping = findData(Shopping::class);
+    foreach($shopping as $shopped){
+        $id = $shopped['id'];
+        doneShopping($id);
+    }
+}

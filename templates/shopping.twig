@@ -44,6 +44,11 @@
         {% endfor %}
     {% endfor %}
     {% if currentPage == 'shopping' %}
+        {% if shopping != null %}
+        <div class='flex justify-center'>
+            {% include 'buttons/allShoppedButton.twig' %}
+        </div>
+        {% endif %}
         <div class='p-3 mt-5 bg-pink-100 flex justify-between items-center border border-solid border-pink-400'>
             <select name='newProductId'>
                 {% for product in products %}

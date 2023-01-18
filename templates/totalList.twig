@@ -21,5 +21,9 @@
             {% endif %}
         {% endfor %}
     {% endfor %}
-    <button name='calculateAmount'>Berechnen</button>
+    {% if totalList != null %}
+        <div class='flex justify-center'>
+            {% include 'buttons/addToShoppingListButton.twig' %}
+        </div>
+    {% endif %}
 </div>

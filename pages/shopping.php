@@ -42,6 +42,11 @@ if(isset($_POST['done'])){
     doneShopping($_POST['done']);
 }
 
+if(isset($_POST['allShopped'])){
+    allShopped();
+}
+
+
 //-------
 
 include 'lists/shoppingList.php';

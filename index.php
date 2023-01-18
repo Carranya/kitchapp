@@ -13,6 +13,8 @@
     <script src="./node_modules/tw-elements/dist/js/index.min.js"></script>
 </head>
 <body class='font-sans bg-violet-300'>
+
+<h1 class='font-display text-center text-6xl mt-10 italic font-bold'>Kitchenwiz</h1>
     <div>
         <?php
             include "pages/menu.php";
@@ -26,5 +28,6 @@
             ?>
         </div>
     </div>
+<div class='text-sm text-center'>© 2023 <a href='https://karingiang.ch/'>Karin Giang</a></div>
 </body>
 </html>
